@@ -9,8 +9,20 @@
     <meta name="author" content="Patrick Potvin">
     <meta name="geo.region" content="CA-QC">
     <meta name="geo.placename" content="Nicolet">
+    <meta property="og:title" content="Atelier Informatique Potvin - Expert informatique à Nicolet">
+    <meta property="og:description" content="40 ans d'expérience en dépannage informatique. Service à domicile Nicolet, Trois-Rivières, Bécancour.">
+    <meta property="og:image" content="https://atelierpotvin.tech/logo-aip-optimized.png">
+    <meta property="og:url" content="https://atelierpotvin.tech">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="logo-aip-optimized.png">
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
+    <!-- DNS prefetch -->
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -206,6 +218,17 @@
         .rounded-footer-section {
             border-radius: 24px 24px 0 0;
         }
+        
+        /* Optimisation images */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -219,7 +242,8 @@
                         <a href="#accueil">
                             <img src="logo-aip-optimized.png" 
                                  alt="Logo Atelier Informatique Potvin - Dépannage informatique Nicolet" 
-                                 class="logo-header">
+                                 class="logo-header"
+                                 width="150" height="50">
                         </a>
                     </div>
                 </div>
@@ -227,6 +251,7 @@
                     <a href="#accueil" class="text-gray-700 hover:text-blue-700 font-medium text-lg transition duration-300">Accueil</a>
                     <a href="#services" class="text-gray-700 hover:text-blue-700 font-medium text-lg transition duration-300">Services</a>
                     <a href="#tarifs" class="text-gray-700 hover:text-blue-700 font-medium text-lg transition duration-300">Tarifs</a>
+                    <a href="#temoignages" class="text-gray-700 hover:text-blue-700 font-medium text-lg transition duration-300">Témoignages</a>
                     <a href="#contact" class="text-gray-700 hover:text-blue-700 font-medium text-lg transition duration-300">Contact</a>
                 </div>
                 <a href="tel:8193802999" class="btn-primary text-white px-6 py-3 rounded-full-xl font-bold text-lg flex items-center space-x-2">
@@ -245,7 +270,8 @@
                     <div class="mb-8">
                         <img src="logo-aip-optimized.png" 
                              alt="Atelier Informatique Potvin - 40 ans d'expérience en informatique"
-                             class="logo-hero mb-6">
+                             class="logo-hero mb-6"
+                             width="300" height="auto">
                         <div class="inline-block eco-badge text-white px-4 py-2 rounded-badge text-sm font-bold">
                             <i class="fas fa-leaf mr-2"></i>SERVICE ÉCORESPONSABLE
                         </div>
@@ -281,7 +307,8 @@
                         <div class="bg-white rounded-3xl p-3 shadow-2xl transform rotate-2 hover:rotate-0 transition duration-500 rounded-large">
                             <img src="patrick.jpg" 
                                 alt="Patrick Potvin - Technicien informatique Nicolet avec 40 ans d'expérience" 
-                                class="rounded-2xl w-full max-w-md shadow-xl rounded-medium">
+                                class="rounded-2xl w-full max-w-md shadow-xl rounded-medium"
+                                width="400" height="400">
                         </div>
                         <div class="absolute -bottom-6 -right-6 bg-blue-600 text-white p-4 rounded-2xl shadow-2xl rounded-medium">
                             <div class="text-3xl font-bold">40+</div>
@@ -690,4 +717,402 @@
                             <div class="text-3xl text-blue-600 mb-2">
                                 <i class="fas fa-map-marker-alt"></i>
                             </div>
-                            <div class
+                            <div class="font-bold text-gray-900">Trois‑Rivières</div>
+                            <div class="text-sm text-gray-600">Secteurs desservis</div>
+                        </div>
+                        <div class="bg-blue-50 p-4 rounded-card text-center">
+                            <div class="text-3xl text-blue-600 mb-2">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="font-bold text-gray-900">Bécancour</div>
+                            <div class="text-sm text-gray-600">Centre et quartiers</div>
+                        </div>
+                        <div class="bg-blue-50 p-4 rounded-card text-center">
+                            <div class="text-3xl text-blue-600 mb-2">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="font-bold text-gray-900">Daveluyville</div>
+                            <div class="text-sm text-gray-600">Service sur rendez‑vous</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Carte indicative -->
+                <div class="bg-white rounded-section p-8 shadow-xl">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">Rayon d'intervention</h3>
+                    <div class="relative bg-gradient-to-b from-blue-50 to-indigo-50 rounded-card p-8 h-full flex items-center justify-center">
+                        <div class="text-center">
+                            <div class="w-48 h-48 mx-auto mb-6 relative">
+                                <div class="absolute inset-0 border-4 border-blue-300 border-dashed rounded-full animate-pulse"></div>
+                                <div class="absolute inset-8 border-4 border-blue-400 border-dashed rounded-full"></div>
+                                <div class="absolute inset-16 border-4 border-blue-500 rounded-full"></div>
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-home text-white text-2xl"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <h4 class="text-xl font-bold text-gray-900 mb-2">50 km autour de Nicolet</h4>
+                            <p class="text-gray-700">Service à domicile inclus dans le tarif horaire</p>
+                            <div class="mt-6">
+                                <div class="inline-flex items-center bg-white px-4 py-2 rounded-card shadow">
+                                    <i class="fas fa-gas-pump text-blue-500 mr-2"></i>
+                                    <span>Frais de déplacement inclus</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Témoignages -->
+    <section id="temoignages" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 section-title mb-4">Ce que disent mes clients</h2>
+                <p class="text-xl text-gray-600">La satisfaction client est ma meilleure recommandation</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Témoignage 1 -->
+                <div class="testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-blue-500"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">Marie L.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">
+                        "Patrick a sauvé toutes mes photos de famille après un crash de disque dur. Il a pris le temps de tout m'expliquer, sans jargon technique. Je le recommande à tous mes amis !"
+                    </p>
+                </div>
+
+                <!-- Témoignage 2 -->
+                <div class="testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mr-4">
+                            <i class="fas fa-user-tie text-green-500"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">Robert D.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">
+                        "Notre petite entreprise avait des problèmes de réseau. Patrick a tout réglé en une visite, et nous a même formés pour éviter les problèmes futurs. Professionnel et efficace."
+                    </p>
+                </div>
+
+                <!-- Témoignage 3 -->
+                <div class="testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center mr-4">
+                            <i class="fas fa-user-graduate text-purple-500"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">Suzanne P.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">
+                        "En tant que personne âgée, l'informatique me stressait. Patrick a été d'une patience extraordinaire. Maintenant, je sais utiliser mon ordinateur sans crainte. Merci !"
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-16 bg-gradient-to-b from-white to-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 section-title mb-4">Contactez-moi</h2>
+                <p class="text-xl text-gray-600">Une question ? Un problème à résoudre ? N'hésitez pas à me contacter</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Informations de contact -->
+                <div class="bg-white rounded-contact-card p-8 shadow-xl">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Mes coordonnées</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-card mr-4">
+                                <i class="fas fa-phone-alt text-blue-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 text-lg">Téléphone</h4>
+                                <a href="tel:8193802999" class="text-blue-600 text-xl font-bold hover:text-blue-800 transition">819-380-2999</a>
+                                <p class="text-gray-600 text-sm mt-1">Réponse rapide garantie</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-green-100 p-3 rounded-card mr-4">
+                                <i class="fas fa-envelope text-green-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 text-lg">Email</h4>
+                                <a href="mailto:contact@atelierpotvin.tech" class="text-green-600 text-lg font-bold hover:text-green-800 transition">contact@atelierpotvin.tech</a>
+                                <p class="text-gray-600 text-sm mt-1">Réponse sous 24h</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-purple-100 p-3 rounded-card mr-4">
+                                <i class="fas fa-map-marker-alt text-purple-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 text-lg">Zone de service</h4>
+                                <p class="text-gray-700">Nicolet et région (50 km)</p>
+                                <p class="text-gray-600 text-sm mt-1">Service à domicile inclus</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-yellow-100 p-3 rounded-card mr-4">
+                                <i class="fas fa-clock text-yellow-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 text-lg">Horaires</h4>
+                                <p class="text-gray-700">Lundi au Vendredi: 9h-17h</p>
+                                <p class="text-gray-600 text-sm mt-1">Urgences: soirs et fins de semaine</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 p-6 bg-blue-50 rounded-card">
+                        <h4 class="font-bold text-gray-900 mb-2">💡 Conseil pratique</h4>
+                        <p class="text-gray-700">
+                            Avant mon intervention, pensez à noter vos identifiants importants (emails, réseaux sociaux) et à sauvegarder vos documents cruciaux si possible.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Message rapide -->
+                <div class="bg-white rounded-contact-card p-8 shadow-xl">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Message rapide</h3>
+                    <p class="text-gray-600 mb-6">Pour une réponse plus rapide, appelez directement. Sinon, laissez un message et je vous recontacte rapidement.</p>
+                    
+                    <form id="contactForm" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-gray-700 font-medium mb-2">Votre nom *</label>
+                            <input type="text" id="name" required class="w-full px-4 py-3 border border-gray-300 rounded-card focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition">
+                        </div>
+                        
+                        <div>
+                            <label for="phone" class="block text-gray-700 font-medium mb-2">Téléphone *</label>
+                            <input type="tel" id="phone" required class="w-full px-4 py-3 border border-gray-300 rounded-card focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" pattern="[0-9\s\-]+" title="Numéro de téléphone valide">
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-gray-700 font-medium mb-2">Message *</label>
+                            <textarea id="message" rows="4" required class="w-full px-4 py-3 border border-gray-300 rounded-card focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"></textarea>
+                        </div>
+                        
+                        <div>
+                            <label for="urgency" class="block text-gray-700 font-medium mb-2">Urgence</label>
+                            <select id="urgency" class="w-full px-4 py-3 border border-gray-300 rounded-card focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition">
+                                <option value="normal">Normale (réponse sous 24h)</option>
+                                <option value="urgent">Urgente (ordinateur inutilisable)</option>
+                                <option value="emergency">Urgence absolue (données en danger)</option>
+                            </select>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-blue-600 text-white py-4 rounded-card font-bold text-lg hover:bg-blue-700 transition duration-300">
+                            <i class="fas fa-paper-plane mr-2"></i>Envoyer le message
+                        </button>
+                        
+                        <p class="text-gray-500 text-sm text-center">
+                            En cliquant, vous acceptez d'être recontacté par téléphone.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white rounded-footer-section">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="py-12">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <!-- Logo et description -->
+                    <div>
+                        <div class="mb-6">
+                            <img src="logo-aip-optimized.png" 
+                                 alt="Atelier Informatique Potvin" 
+                                 class="logo-footer mb-4">
+                        </div>
+                        <p class="text-gray-300 mb-6">
+                            Service informatique professionnel et humain à Nicolet et environs depuis plus de 40 ans.
+                        </p>
+                        <div class="flex space-x-4">
+                            <a href="tel:8193802999" class="bg-blue-600 p-3 rounded-full hover:bg-blue-700 transition">
+                                <i class="fas fa-phone-alt"></i>
+                            </a>
+                            <a href="mailto:contact@atelierpotvin.tech" class="bg-green-600 p-3 rounded-full hover:bg-green-700 transition">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Liens rapides -->
+                    <div>
+                        <h4 class="text-xl font-bold mb-6">Liens rapides</h4>
+                        <ul class="space-y-3">
+                            <li><a href="#accueil" class="text-gray-300 hover:text-white transition">Accueil</a></li>
+                            <li><a href="#services" class="text-gray-300 hover:text-white transition">Services</a></li>
+                            <li><a href="#tarifs" class="text-gray-300 hover:text-white transition">Tarifs</a></li>
+                            <li><a href="#temoignages" class="text-gray-300 hover:text-white transition">Témoignages</a></li>
+                            <li><a href="#contact" class="text-gray-300 hover:text-white transition">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Infos légales -->
+                    <div>
+                        <h4 class="text-xl font-bold mb-6">Informations légales</h4>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-start">
+                                <i class="fas fa-user-tie mr-3 mt-1"></i>
+                                <span>Patrick Potvin, travailleur autonome</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-map-marker-alt mr-3 mt-1"></i>
+                                <span>Nicolet, Québec, Canada</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-file-invoice-dollar mr-3 mt-1"></i>
+                                <span>Factures détaillées fournies</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-shield-alt mr-3 mt-1"></i>
+                                <span>Confidentialité garantie</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+                    <div class="flex flex-col md:flex-row justify-between items-center">
+                        <p class="text-gray-400 mb-4 md:mb-0">
+                            © 2024 Atelier Informatique Potvin. Tous droits réservés.
+                        </p>
+                        <p class="text-gray-400">
+                            <i class="fas fa-leaf text-green-400 mr-2"></i>
+                            Service écoresponsable - Réparation avant remplacement
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Navigation mobile (si besoin plus tard)
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scroll pour les ancres
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if(targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Form submission
+            const contactForm = document.getElementById('contactForm');
+            if(contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Récupération des valeurs
+                    const name = document.getElementById('name').value;
+                    const phone = document.getElementById('phone').value;
+                    const message = document.getElementById('message').value;
+                    const urgency = document.getElementById('urgency').value;
+                    
+                    // Construction du message WhatsApp
+                    const whatsappMessage = `Bonjour Patrick,\n\nJe suis ${name}.\nMon téléphone: ${phone}\n\nMessage: ${message}\n\nUrgence: ${urgency}\n\n(Ce message vient de votre site web)`;
+                    
+                    // Encodage pour URL
+                    const encodedMessage = encodeURIComponent(whatsappMessage);
+                    
+                    // Redirection vers WhatsApp
+                    window.open(`https://wa.me/18193802999?text=${encodedMessage}`, '_blank');
+                    
+                    // Reset du formulaire
+                    contactForm.reset();
+                    
+                    // Message de confirmation
+                    alert('Merci ! Vous allez être redirigé vers WhatsApp pour finaliser votre demande.');
+                });
+            }
+            
+            // Animation au scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if(entry.isIntersecting) {
+                        entry.target.classList.add('animate-fade-in');
+                    }
+                });
+            }, observerOptions);
+            
+            // Observer les cartes
+            document.querySelectorAll('.card-hover, .testimonial-card').forEach(card => {
+                observer.observe(card);
+            });
+        });
+        
+        // Ajout d'une animation CSS
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            .animate-fade-in {
+                animation: fadeIn 0.6s ease-out forwards;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
