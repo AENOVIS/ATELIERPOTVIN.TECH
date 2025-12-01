@@ -9,6 +9,8 @@
     <meta name="author" content="Patrick Potvin">
     <meta name="geo.region" content="CA-QC">
     <meta name="geo.placename" content="Nicolet">
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="logo-aip-optimized.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -101,6 +103,10 @@
                 height: 60px;
                 font-size: 24px;
             }
+            
+            .logo-container {
+                max-width: 200px;
+            }
         }
 
         .testimonial-card {
@@ -121,6 +127,32 @@
             opacity: 0.1;
             font-family: serif;
         }
+        
+        .logo-container {
+            max-width: 250px;
+            transition: transform 0.3s ease;
+        }
+        
+        .logo-container:hover {
+            transform: scale(1.05);
+        }
+        
+        .logo-header {
+            height: 50px;
+            width: auto;
+        }
+        
+        .logo-hero {
+            max-width: 300px;
+            width: 100%;
+            height: auto;
+        }
+        
+        .logo-footer {
+            max-width: 200px;
+            width: 100%;
+            height: auto;
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -130,14 +162,12 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-4">
                 <div class="flex items-center">
-                    <div class="flex items-center space-x-3">
-                        <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
-                            <i class="fas fa-laptop-code text-white text-xl"></i>
-                        </div>
-                        <div>
-                            <span class="text-2xl font-bold text-blue-800">Atelier Info Potvin</span>
-                            <div class="text-xs text-gray-500 -mt-1">Depuis 1984</div>
-                        </div>
+                    <div class="logo-container">
+                        <a href="#accueil">
+                            <img src="logo-aip-optimized.png" 
+                                 alt="Logo Atelier Informatique Potvin - Dépannage informatique Nicolet" 
+                                 class="logo-header">
+                        </a>
                     </div>
                 </div>
                 <div class="hidden md:flex space-x-8">
@@ -159,8 +189,13 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div>
-                    <div class="inline-block eco-badge text-white px-4 py-2 rounded-full text-sm font-bold mb-6">
-                        <i class="fas fa-leaf mr-2"></i>SERVICE ÉCORESPONSABLE
+                    <div class="mb-8">
+                        <img src="logo-aip-optimized.png" 
+                             alt="Atelier Informatique Potvin - 40 ans d'expérience en informatique"
+                             class="logo-hero mb-6">
+                        <div class="inline-block eco-badge text-white px-4 py-2 rounded-full text-sm font-bold">
+                            <i class="fas fa-leaf mr-2"></i>SERVICE ÉCORESPONSABLE
+                        </div>
                     </div>
                     <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">Votre expert informatique à Nicolet et environs</h1>
                     <p class="text-xl mb-8 leading-relaxed">40 ans d'expérience au service des particuliers et petites entreprises. Dépannage informatique, réparation d'ordinateur et assistance technique avec patience et pédagogie.</p>
@@ -192,7 +227,7 @@
                     <div class="relative">
                         <div class="bg-white rounded-3xl p-3 shadow-2xl transform rotate-2 hover:rotate-0 transition duration-500">
                             <img src="patrick.jpg" 
-                                alt="Patrick Potvin - Technicien informatique Nicolet" 
+                                alt="Patrick Potvin - Technicien informatique Nicolet avec 40 ans d'expérience" 
                                 class="rounded-2xl w-full max-w-md shadow-xl">
                         </div>
                         <div class="absolute -bottom-6 -right-6 bg-blue-600 text-white p-4 rounded-2xl shadow-2xl">
@@ -216,7 +251,7 @@
                     <div class="flex flex-col md:flex-row items-center gap-8">
                         <div class="flex-shrink-0">
                             <div class="w-48 h-48 rounded-full overflow-hidden border-4 border-white shadow-lg">
-                                <img src="patrick.jpg" alt="Patrick Potvin" class="w-full h-full object-cover">
+                                <img src="patrick.jpg" alt="Patrick Potvin - Expert informatique Nicolet" class="w-full h-full object-cover">
                             </div>
                         </div>
                         <div class="flex-1">
@@ -803,19 +838,13 @@
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-3 gap-8">
+            <div class="grid md:grid-cols-3 gap-8 items-center">
                 <div>
-                    <div class="flex items-center space-x-3 mb-6">
-                        <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center">
-                            <i class="fas fa-laptop-code text-white text-2xl"></i>
-                        </div>
-                        <div>
-                            <p class="text-2xl font-bold">Atelier Informatique Potvin</p>
-                            <p class="text-sm text-gray-400">Expert technique depuis 1984</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-400">
-                        Service informatique professionnel avec une approche humaine et pédagogique.
+                    <img src="logo-aip-optimized.png" 
+                         alt="Atelier Informatique Potvin Logo"
+                         class="logo-footer mb-4">
+                    <p class="text-gray-400 text-sm">
+                        Expert informatique à Nicolet depuis 1984
                     </p>
                 </div>
 
@@ -830,23 +859,31 @@
                 </div>
 
                 <div>
-                    <h4 class="text-xl font-bold mb-6">Zone de service</h4>
+                    <h4 class="text-xl font-bold mb-6">Coordonnées</h4>
                     <div class="text-gray-400 space-y-2">
-                        <p>Nicolet et environs</p>
-                        <p>Rayon de 50 km</p>
-                        <p>Trois-Rivières • Bécancour • Saint-Célestin</p>
+                        <p class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3 text-blue-400"></i>
+                            <a href="tel:8193802999" class="hover:text-white">819-380-2999</a>
+                        </p>
+                        <p class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-blue-400"></i>
+                            <a href="mailto:pot20pat@gmail.com" class="hover:text-white">pot20pat@gmail.com</a>
+                        </p>
+                        <p class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-3 text-blue-400"></i>
+                            Nicolet et région
+                        </p>
                     </div>
                 </div>
             </div>
             
             <div class="border-t border-gray-800 mt-8 pt-8 text-center">
                 <p class="text-gray-400">
-                    © 2025 Atelier Informatique Potvin - Dépannage et réparation informatique Nicolet • 
-                    <a href="tel:8193802999" class="text-blue-400 hover:text-blue-300">819-380-2999</a>
+                    © 2025 Atelier Informatique Potvin - Tous droits réservés
                 </p>
                 <p class="text-gray-500 text-sm mt-2">
                     <i class="fas fa-leaf text-green-500 mr-1"></i>
-                    Service écoresponsable avec véhicule électrique
+                    Service écoresponsable avec véhicule électrique • Dépannage informatique Nicolet, Trois-Rivières, Bécancour
                 </p>
             </div>
         </div>
