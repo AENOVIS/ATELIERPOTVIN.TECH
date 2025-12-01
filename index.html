@@ -3,40 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atelier Informatique Potvin - Dépannage et réparation ordinateur Nicolet, Trois-Rivières</title>
+    <title>Atelier Informatique Potvin - Dépannage informatique Nicolet, Trois-Rivières</title>
     <meta name="description" content="Support informatique professionnel à Nicolet et environs. Dépannage, réparation ordinateur, aide informatique. Service écoresponsable. 40 ans d'expérience. ☎ 819-380-2999">
     <meta name="keywords" content="dépannage informatique Nicolet, réparation ordinateur Trois-Rivières, technicien informatique Bécancour, aide informatique, support technique, service informatique à domicile">
     <meta name="author" content="Patrick Potvin">
     <meta name="geo.region" content="CA-QC">
     <meta name="geo.placename" content="Nicolet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
             font-size: 18px;
             line-height: 1.8;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
         }
         
         .hero-gradient {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
         }
         
         .card-hover {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.3s ease;
         }
         
         .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(30, 60, 114, 0.15);
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
             transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(30, 60, 114, 0.3);
         }
 
         .btn-primary:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(30, 60, 114, 0.4);
         }
 
         .section-title {
@@ -47,335 +50,811 @@
         .section-title::after {
             content: '';
             position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 2px;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 5px;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            border-radius: 3px;
+        }
+
+        .eco-badge {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            border-radius: 50%;
+            color: white;
+            font-size: 32px;
         }
 
         @media (max-width: 768px) {
             body {
-                font-size: 20px;
+                font-size: 17px;
             }
             
             h1 {
-                font-size: 2rem !important;
+                font-size: 1.8rem !important;
             }
             
             h2 {
-                font-size: 1.75rem !important;
+                font-size: 1.5rem !important;
             }
+            
+            .feature-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
+            }
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 30px;
+            font-size: 100px;
+            color: #1e3c72;
+            opacity: 0.1;
+            font-family: serif;
         }
     </style>
 </head>
 <body class="bg-gray-50">
     
+    <!-- Navigation -->
     <nav class="bg-white shadow-lg sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-4">
                 <div class="flex items-center">
-                    <span class="text-2xl font-bold text-purple-700">Atelier Informatique Potvin</span>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
+                            <i class="fas fa-laptop-code text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <span class="text-2xl font-bold text-blue-800">Atelier Info Potvin</span>
+                            <div class="text-xs text-gray-500 -mt-1">Depuis 1984</div>
+                        </div>
+                    </div>
                 </div>
                 <div class="hidden md:flex space-x-8">
-                    <a href="#accueil" class="text-gray-700 hover:text-purple-700 font-medium text-lg">Accueil</a>
-                    <a href="#services" class="text-gray-700 hover:text-purple-700 font-medium text-lg">Services</a>
-                    <a href="#tarifs" class="text-gray-700 hover:text-purple-700 font-medium text-lg">Tarifs</a>
-                    <a href="#contact" class="text-gray-700 hover:text-purple-700 font-medium text-lg">Contact</a>
+                    <a href="#accueil" class="text-gray-700 hover:text-blue-700 font-medium text-lg transition duration-300">Accueil</a>
+                    <a href="#services" class="text-gray-700 hover:text-blue-700 font-medium text-lg transition duration-300">Services</a>
+                    <a href="#tarifs" class="text-gray-700 hover:text-blue-700 font-medium text-lg transition duration-300">Tarifs</a>
+                    <a href="#contact" class="text-gray-700 hover:text-blue-700 font-medium text-lg transition duration-300">Contact</a>
                 </div>
-                <a href="tel:8193802999" class="btn-primary text-white px-6 py-3 rounded-full font-bold text-lg">
-                    📞 819-380-2999
+                <a href="tel:8193802999" class="btn-primary text-white px-6 py-3 rounded-full font-bold text-lg flex items-center space-x-2">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>819-380-2999</span>
                 </a>
             </div>
         </div>
     </nav>
 
-    <section id="accueil" class="hero-gradient text-white py-20">
+    <!-- Hero Section -->
+    <section id="accueil" class="hero-gradient text-white py-16 md:py-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div>
-                    <h1 class="text-5xl font-bold mb-6">Besoin d'aide avec votre ordinateur?</h1>
-                    <p class="text-2xl mb-8 leading-relaxed">Dépannage informatique et réparation d'ordinateur à Nicolet, Trois-Rivières et Bécancour. Service chaleureux et professionnel. 40 ans d'expérience à votre service!</p>
+                    <div class="inline-block eco-badge text-white px-4 py-2 rounded-full text-sm font-bold mb-6">
+                        <i class="fas fa-leaf mr-2"></i>SERVICE ÉCORESPONSABLE
+                    </div>
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">Votre expert informatique à Nicolet et environs</h1>
+                    <p class="text-xl mb-8 leading-relaxed">40 ans d'expérience au service des particuliers et petites entreprises. Dépannage informatique, réparation d'ordinateur et assistance technique avec patience et pédagogie.</p>
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="tel:8193802999" class="bg-white text-purple-700 px-8 py-4 rounded-full font-bold text-xl hover:bg-gray-100 transition text-center">
-                            📞 Appelez maintenant
+                        <a href="tel:8193802999" class="bg-white text-blue-700 px-8 py-4 rounded-full font-bold text-xl hover:bg-gray-100 transition duration-300 text-center flex items-center justify-center space-x-2">
+                            <i class="fas fa-phone-alt"></i>
+                            <span>Appelez maintenant</span>
                         </a>
-                        <a href="#services" class="border-2 border-white text-white px-8 py-4 rounded-full font-bold text-xl hover:bg-white hover:text-purple-700 transition text-center">
-                            Voir les services
+                        <a href="#services" class="border-2 border-white text-white px-8 py-4 rounded-full font-bold text-xl hover:bg-white hover:text-blue-700 transition duration-300 text-center">
+                            Découvrir mes services
                         </a>
+                    </div>
+                    <div class="mt-8 flex flex-wrap gap-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-green-300 mr-2 text-xl"></i>
+                            <span>Service à domicile</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-green-300 mr-2 text-xl"></i>
+                            <span>Assistance à distance</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-green-300 mr-2 text-xl"></i>
+                            <span>Explications claires</span>
+                        </div>
                     </div>
                 </div>
                 <div class="flex justify-center">
-                    <div class="bg-white rounded-3xl p-2 shadow-2xl">
-                        <img src="patrick.jpg" 
-                            alt="Patrick Potvin" 
-                            class="rounded-2xl w-full max-w-md shadow-2xl">
+                    <div class="relative">
+                        <div class="bg-white rounded-3xl p-3 shadow-2xl transform rotate-2 hover:rotate-0 transition duration-500">
+                            <img src="patrick.jpg" 
+                                alt="Patrick Potvin - Technicien informatique Nicolet" 
+                                class="rounded-2xl w-full max-w-md shadow-xl">
+                        </div>
+                        <div class="absolute -bottom-6 -right-6 bg-blue-600 text-white p-4 rounded-2xl shadow-2xl">
+                            <div class="text-3xl font-bold">40+</div>
+                            <div class="text-sm">ans d'expérience</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Présentation -->
     <section class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold text-gray-900 section-title mb-4">Bonjour, je suis Patrick!</h2>
+                <h2 class="text-4xl font-bold text-gray-900 section-title mb-4">Patrick Potvin, votre technicien de confiance</h2>
             </div>
-            <div class="max-w-3xl mx-auto">
-                <div class="bg-purple-50 rounded-2xl p-8 shadow-lg">
-                    <p class="text-xl text-gray-700 mb-6">
-                        Depuis 1984, je travaille dans le domaine de l'informatique. Ma passion? Aider les gens à apprivoiser la technologie avec patience et simplicité, que ce soit pour du dépannage informatique, de la réparation d'ordinateur ou de l'assistance technique.
-                    </p>
-                    <p class="text-xl text-gray-700 mb-6">
-                        Je comprends que l'ordinateur peut parfois sembler compliqué. C'est pourquoi je prends le temps d'expliquer chaque étape dans un langage simple et clair, à votre domicile ou à distance.
-                    </p>
-                    <p class="text-xl text-gray-700 font-medium">
-                        Vous n'êtes pas seul - je suis là pour vous aider!
-                    </p>
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-10 shadow-xl border border-blue-100">
+                    <div class="flex flex-col md:flex-row items-center gap-8">
+                        <div class="flex-shrink-0">
+                            <div class="w-48 h-48 rounded-full overflow-hidden border-4 border-white shadow-lg">
+                                <img src="patrick.jpg" alt="Patrick Potvin" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <p class="text-xl text-gray-700 mb-6 leading-relaxed">
+                                <i class="fas fa-quote-left text-blue-400 text-2xl mr-2"></i>
+                                Passionné par l'informatique depuis les premiers PC, je mets mon expertise à votre service avec une approche humaine et pédagogique. Mon objectif : vous rendre autonome et serein face à la technologie.
+                            </p>
+                            <div class="bg-white rounded-xl p-6 mt-6 shadow-inner">
+                                <h3 class="text-xl font-bold text-blue-800 mb-3">Pourquoi me choisir ?</h3>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-clock text-blue-500 mr-3"></i>
+                                        <span>Rapidité d'intervention</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <i class="fas fa-handshake text-blue-500 mr-3"></i>
+                                        <span>Transparence des tarifs</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <i class="fas fa-graduation-cap text-blue-500 mr-3"></i>
+                                        <span>Formation personnalisée</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <i class="fas fa-shield-alt text-blue-500 mr-3"></i>
+                                        <span>Protection de vos données</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Services -->
     <section id="services" class="py-16 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold text-gray-900 section-title mb-4">Mes Services</h2>
-                <p class="text-xl text-gray-600">À votre domicile ou à distance - Nicolet, Trois-Rivières, Bécancour</p>
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 section-title mb-4">Mes Services Professionnels</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Des solutions informatiques complètes pour particuliers et petites entreprises dans la région de Nicolet, Trois-Rivières et Bécancour.</p>
             </div>
+            
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-                <div class="card-hover bg-white rounded-2xl p-8 shadow-lg">
-                    <div class="text-5xl mb-4">🔧</div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Réparation d'ordinateurs</h3>
-                    <p class="text-lg text-gray-600">Problèmes techniques, lenteur, écran bleu? Je diagnostique et répare votre ordinateur.</p>
+                <!-- Service 1 -->
+                <div class="card-hover bg-white rounded-2xl p-8 shadow-lg border-t-4 border-blue-500">
+                    <div class="feature-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4 text-center">Dépannage & Réparation</h3>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            <span>Diagnostic et réparation matérielle</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            <span>Résolution écrans bleus et plantages</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            <span>Récupération de données perdues</span>
+                        </li>
+                    </ul>
                 </div>
 
-                <div class="card-hover bg-white rounded-2xl p-8 shadow-lg">
-                    <div class="text-5xl mb-4">🛡️</div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Protection antivirus</h3>
-                    <p class="text-lg text-gray-600">Installation et configuration d'antivirus pour protéger vos données personnelles.</p>
+                <!-- Service 2 -->
+                <div class="card-hover bg-white rounded-2xl p-8 shadow-lg border-t-4 border-green-500">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4 text-center">Sécurité & Protection</h3>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            <span>Installation antivirus premium</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            <span>Nettoyage de virus et malwares</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            <span>Configuration pare-feu et VPN</span>
+                        </li>
+                    </ul>
                 </div>
 
-                <div class="card-hover bg-white rounded-2xl p-8 shadow-lg">
-                    <div class="text-5xl mb-4">⚡</div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Optimisation</h3>
-                    <p class="text-lg text-gray-600">Votre ordinateur est lent? Je le nettoie et l'accélère pour de meilleures performances.</p>
+                <!-- Service 3 -->
+                <div class="card-hover bg-white rounded-2xl p-8 shadow-lg border-t-4 border-purple-500">
+                    <div class="feature-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4 text-center">Optimisation Performance</h3>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            <span>Accélération ordinateur lent</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            <span>Nettoyage disque et registre</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            <span>Mise à jour systèmes et drivers</span>
+                        </li>
+                    </ul>
                 </div>
 
-                <div class="card-hover bg-white rounded-2xl p-8 shadow-lg">
-                    <div class="text-5xl mb-4">🌐</div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Configuration internet</h3>
-                    <p class="text-lg text-gray-600">Connexion Wi-Fi, routeur, configuration email - je m'occupe de tout!</p>
+                <!-- Service 4 -->
+                <div class="card-hover bg-white rounded-2xl p-8 shadow-lg border-t-4 border-yellow-500">
+                    <div class="feature-icon">
+                        <i class="fas fa-wifi"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4 text-center">Réseau & Connexion</h3>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            <span>Configuration réseau WiFi</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            <span>Installation routeur/modem</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            <span>Configuration email et cloud</span>
+                        </li>
+                    </ul>
                 </div>
 
-                <div class="card-hover bg-white rounded-2xl p-8 shadow-lg">
-                    <div class="text-5xl mb-4">💾</div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Sauvegarde de données</h3>
-                    <p class="text-lg text-gray-600">Protection de vos photos et documents importants avec des copies de sécurité.</p>
+                <!-- Service 5 -->
+                <div class="card-hover bg-white rounded-2xl p-8 shadow-lg border-t-4 border-red-500">
+                    <div class="feature-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4 text-center">Sauvegarde & Données</h3>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            <span>Sauvegarde automatique</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            <span>Transfert vers nouvel ordinateur</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            <span>Stockage cloud sécurisé</span>
+                        </li>
+                    </ul>
                 </div>
 
-                <div class="card-hover bg-white rounded-2xl p-8 shadow-lg">
-                    <div class="text-5xl mb-4">❓</div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Assistance technique</h3>
-                    <p class="text-lg text-gray-600">Formation et explications pour utiliser votre ordinateur en toute confiance.</p>
+                <!-- Service 6 -->
+                <div class="card-hover bg-white rounded-2xl p-8 shadow-lg border-t-4 border-indigo-500">
+                    <div class="feature-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4 text-center">Formation & Assistance</h3>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            <span>Initiation informatique</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            <span>Assistance logiciels bureautique</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            <span>Support technique continu</span>
+                        </li>
+                    </ul>
                 </div>
-                
             </div>
-            <div class="mt-12 bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-lg">
-                <p class="text-xl text-gray-800">
-                    ⚠️ <strong>Note importante:</strong> Je ne répare pas les téléphones cellulaires ni les tablettes.
-                </p>
+            
+            <!-- Note importante -->
+            <div class="mt-12 bg-yellow-50 border-l-4 border-yellow-500 p-6 rounded-xl">
+                <div class="flex items-start">
+                    <i class="fas fa-exclamation-triangle text-yellow-600 text-2xl mr-4 mt-1"></i>
+                    <div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-2">Note importante</h4>
+                        <p class="text-lg text-gray-800">
+                            Je ne répare pas les téléphones cellulaires ni les tablettes. Je me spécialise exclusivement dans les ordinateurs fixes et portables (Windows et macOS).
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- Tarifs -->
     <section id="tarifs" class="py-16 bg-white">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold text-gray-900 section-title mb-4">Tarifs</h2>
-                <p class="text-xl text-gray-600">Transparents et équitables</p>
-            </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                
-                <div class="card-hover bg-purple-50 rounded-2xl p-8 shadow-lg text-center">
-                    <div class="text-4xl mb-4">🕐</div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Heures régulières</h3>
-                    <div class="text-5xl font-bold text-purple-700 mb-4">75$</div>
-                    <p class="text-lg text-gray-600 mb-4">par heure</p>
-                    <p class="text-gray-600">Lundi au vendredi<br>9h à 17h</p>
-                </div>
-
-                <div class="card-hover bg-orange-50 rounded-2xl p-8 shadow-lg text-center">
-                    <div class="text-4xl mb-4">🚨</div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Urgences</h3>
-                    <div class="text-5xl font-bold text-orange-600 mb-4">150$</div>
-                    <p class="text-lg text-gray-600 mb-4">par heure</p>
-                    <p class="text-gray-600">Soirs, fins de semaine<br>et après les heures</p>
-                </div>
-
-                <div class="card-hover bg-red-50 rounded-2xl p-8 shadow-lg text-center">
-                    <div class="text-4xl mb-4">🎄</div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Jours fériés</h3>
-                    <div class="text-5xl font-bold text-red-600 mb-4">225$</div>
-                    <p class="text-lg text-gray-600 mb-4">par heure</p>
-                    <p class="text-gray-600">Jours fériés<br>uniquement</p>
-                </div>
-                
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 section-title mb-4">Tarifs Transparents</h2>
+                <p class="text-xl text-gray-600">Des prix clairs, sans surprise. Facturation à la demi-heure.</p>
             </div>
             
-            <div class="mt-8 mb-4 bg-purple-600 rounded-3xl p-10 shadow-2xl text-white text-center border-4 border-yellow-300">
-                <div class="text-6xl mb-4 font-bold">⚡</div>
-                <h3 class="text-4xl font-extrabold mb-4">FORFAIT TRANQUILITÉ (LE PLUS DEMANDÉ)</h3>
-                <p class="text-2xl mb-6">BLINDAGE ANTI-FRAUDE, NETTOYAGE COMPLET ET 30 MIN. DE FORMATION ANTI-STRESS.</p>
-                <div class="text-7xl font-bold mb-4">150$</div>
-                <p class="text-xl font-medium">Prix clair et sans surprise! Idéal pour les aînés et les personnes anxieuses.</p>
-            </div>
-            
-            <div class="mt-4 mb-16 bg-blue-700 rounded-3xl p-10 shadow-2xl text-white text-center border-4 border-yellow-300">
-                <div class="text-6xl mb-4 font-bold">💻</div>
-                <h3 class="text-4xl font-extrabold mb-4">FORFAIT RENAISSANCE (RÉINSTALLATION OS)</h3>
-                <p class="text-2xl mb-6">Sauvegarde des données, Réinstallation complète de Windows/macOS, Mises à jour & Configuration de base.</p>
-                <div class="text-7xl font-bold mb-4">250$</div>
-                <p class="text-xl font-medium">Prix fixe pour un ordinateur lent, infecté ou irrécupérable. On repart à neuf!</p>
-            </div>
-
-
-            <div class="mt-16">
-                <h3 class="text-3xl font-bold text-gray-900 text-center mb-8">Forfaits à prix fixes</h3>
-                <p class="text-xl text-gray-600 text-center mb-12">Prix clairs, sans surprise!</p>
+            <!-- Forfaits populaires -->
+            <div class="mb-16">
+                <h3 class="text-3xl font-bold text-center text-gray-900 mb-8">Forfaits les plus demandés</h3>
                 
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    
-                    <div class="bg-blue-50 rounded-xl p-6 shadow-md">
-                        <div class="text-3xl mb-3">📧</div>
-                        <h4 class="text-xl font-bold text-gray-900 mb-2">Configuration email</h4>
-                        <p class="text-gray-600 mb-3">Installation d'un compte courriel</p>
-                        <div class="text-3xl font-bold text-blue-600">75$</div>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Forfait Tranquillité -->
+                    <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 shadow-xl border-2 border-blue-200 transform hover:scale-[1.02] transition duration-300">
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <div class="inline-block bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-bold mb-2">
+                                    LE PLUS POPULAIRE
+                                </div>
+                                <h4 class="text-2xl font-bold text-gray-900">Forfait Tranquillité</h4>
+                            </div>
+                            <div class="text-4xl font-bold text-blue-700">150$</div>
+                        </div>
+                        <p class="text-gray-700 mb-6">Idéal pour les aînés et les personnes anxieuses face à l'informatique</p>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <span>Blindage anti-fraude et antivirus</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <span>Nettoyage complet de l'ordinateur</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <span>30 minutes de formation anti-stress</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <span>Vérification des sauvegardes</span>
+                            </li>
+                        </ul>
+                        <a href="tel:8193802999" class="block w-full bg-blue-600 text-white text-center py-4 rounded-xl font-bold hover:bg-blue-700 transition duration-300">
+                            <i class="fas fa-phone-alt mr-2"></i>Réserver ce forfait
+                        </a>
                     </div>
 
-                    <div class="bg-blue-50 rounded-xl p-6 shadow-md">
-                        <div class="text-3xl mb-3">🌐</div>
-                        <h4 class="text-xl font-bold text-gray-900 mb-2">Installation WiFi</h4>
-                        <p class="text-gray-600 mb-3">Configuration routeur et connexion</p>
-                        <div class="text-3xl font-bold text-blue-600">90$</div>
+                    <!-- Forfait Renaissance -->
+                    <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8 shadow-xl border-2 border-purple-200 transform hover:scale-[1.02] transition duration-300">
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <div class="inline-block bg-purple-600 text-white px-4 py-1 rounded-full text-sm font-bold mb-2">
+                                    POUR ORDINATEURS LENTS
+                                </div>
+                                <h4 class="text-2xl font-bold text-gray-900">Forfait Renaissance</h4>
+                            </div>
+                            <div class="text-4xl font-bold text-purple-700">250$</div>
+                        </div>
+                        <p class="text-gray-700 mb-6">Redonnez une nouvelle vie à votre ordinateur</p>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-purple-500 mr-3"></i>
+                                <span>Sauvegarde complète de vos données</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-purple-500 mr-3"></i>
+                                <span>Réinstallation propre de Windows/macOS</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-purple-500 mr-3"></i>
+                                <span>Toutes les mises à jour essentielles</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-purple-500 mr-3"></i>
+                                <span>Configuration de base optimisée</span>
+                            </li>
+                        </ul>
+                        <a href="tel:8193802999" class="block w-full bg-purple-600 text-white text-center py-4 rounded-xl font-bold hover:bg-purple-700 transition duration-300">
+                            <i class="fas fa-phone-alt mr-2"></i>Réserver ce forfait
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarifs horaires -->
+            <div class="mb-16">
+                <h3 class="text-3xl font-bold text-center text-gray-900 mb-8">Tarifs horaires</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-white rounded-xl p-6 shadow-lg text-center border border-gray-200">
+                        <div class="text-4xl mb-4 text-blue-600">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-2">Heures régulières</h4>
+                        <div class="text-3xl font-bold text-gray-900 mb-2">75$<span class="text-lg text-gray-500">/heure</span></div>
+                        <p class="text-gray-600">Lun-Ven 9h-17h</p>
                     </div>
 
-                    <div class="bg-blue-50 rounded-xl p-6 shadow-md">
-                        <div class="text-3xl mb-3">🛡️</div>
-                        <h4 class="text-xl font-bold text-gray-900 mb-2">Antivirus complet</h4>
-                        <p class="text-gray-600 mb-3">Installation et configuration</p>
-                        <div class="text-3xl font-bold text-blue-600">75$</div>
+                    <div class="bg-white rounded-xl p-6 shadow-lg text-center border border-gray-200">
+                        <div class="text-4xl mb-4 text-orange-500">
+                            <i class="fas fa-exclamation-circle"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-2">Urgences</h4>
+                        <div class="text-3xl font-bold text-gray-900 mb-2">150$<span class="text-lg text-gray-500">/heure</span></div>
+                        <p class="text-gray-600">Soirs et fins de semaine</p>
                     </div>
 
-                    
-                    <div class="bg-green-50 rounded-xl p-6 shadow-md">
-                        <div class="text-3xl mb-3">💾</div>
-                        <h4 class="text-xl font-bold text-gray-900 mb-2">Sauvegarde auto</h4>
-                        <p class="text-gray-600 mb-3">Configuration copies de sécurité</p>
-                        <div class="text-3xl font-bold text-green-600">85$</div>
+                    <div class="bg-white rounded-xl p-6 shadow-lg text-center border border-gray-200">
+                        <div class="text-4xl mb-4 text-red-500">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-2">Jours fériés</h4>
+                        <div class="text-3xl font-bold text-gray-900 mb-2">225$<span class="text-lg text-gray-500">/heure</span></div>
+                        <p class="text-gray-600">Jours fériés seulement</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Forfaits fixes -->
+            <div>
+                <h3 class="text-3xl font-bold text-center text-gray-900 mb-8">Services à prix fixes</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-white rounded-xl p-6 shadow-md border-l-4 border-blue-500">
+                        <h4 class="text-lg font-bold text-gray-900 mb-2">Configuration Email</h4>
+                        <p class="text-gray-600 text-sm mb-3">Installation compte courriel</p>
+                        <div class="text-2xl font-bold text-blue-600">75$</div>
                     </div>
 
-                    <div class="bg-green-50 rounded-xl p-6 shadow-md">
-                        <div class="text-3xl mb-3">📱</div>
-                        <h4 class="text-xl font-bold text-gray-900 mb-2">Transfert de données</h4>
-                        <p class="text-gray-600 mb-3">Vers nouvel ordinateur</p>
-                        <div class="text-3xl font-bold text-green-600">125$</div>
+                    <div class="bg-white rounded-xl p-6 shadow-md border-l-4 border-green-500">
+                        <h4 class="text-lg font-bold text-gray-900 mb-2">Installation WiFi</h4>
+                        <p class="text-gray-600 text-sm mb-3">Configuration routeur/connexion</p>
+                        <div class="text-2xl font-bold text-green-600">90$</div>
                     </div>
-                    
+
+                    <div class="bg-white rounded-xl p-6 shadow-md border-l-4 border-purple-500">
+                        <h4 class="text-lg font-bold text-gray-900 mb-2">Antivirus Complet</h4>
+                        <p class="text-gray-600 text-sm mb-3">Installation & configuration</p>
+                        <div class="text-2xl font-bold text-purple-600">75$</div>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-6 shadow-md border-l-4 border-yellow-500">
+                        <h4 class="text-lg font-bold text-gray-900 mb-2">Transfert Données</h4>
+                        <p class="text-gray-600 text-sm mb-3">Vers nouvel ordinateur</p>
+                        <div class="text-2xl font-bold text-yellow-600">125$</div>
+                    </div>
                 </div>
 
-                <div class="mt-8 bg-purple-100 border-2 border-purple-400 rounded-2xl p-8 text-center">
-                    <div class="text-4xl mb-4">🎯</div>
-                    <h4 class="text-2xl font-bold text-purple-900 mb-3">Forfait Sécurité Complet</h4>
-                    <p class="text-lg text-gray-700 mb-4">Antivirus + Sauvegarde + Optimisation</p>
-                    <div class="flex items-center justify-center gap-4">
-                        <span class="text-2xl text-gray-500 line-through">235$</span>
-                        <span class="text-5xl font-bold text-purple-700">200$</span>
+                <!-- Forfait Sécurité Complet -->
+                <div class="mt-10 bg-gradient-to-r from-green-50 to-emerald-100 rounded-2xl p-8 border-2 border-green-300">
+                    <div class="flex flex-col md:flex-row items-center justify-between">
+                        <div>
+                            <h4 class="text-2xl font-bold text-gray-900 mb-2">Forfait Sécurité Complet</h4>
+                            <p class="text-gray-700">Antivirus + Sauvegarde + Optimisation</p>
+                        </div>
+                        <div class="flex items-center gap-6 mt-4 md:mt-0">
+                            <div class="text-right">
+                                <div class="text-2xl text-gray-500 line-through">235$</div>
+                                <div class="text-4xl font-bold text-green-700">200$</div>
+                            </div>
+                            <a href="tel:8193802999" class="bg-green-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-green-700 transition duration-300">
+                                Économiser 35$
+                            </a>
+                        </div>
                     </div>
-                    <p class="text-lg text-purple-600 font-semibold mt-2">Économie de 35$!</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Zone de service -->
+    <section class="py-16 bg-gradient-to-b from-gray-50 to-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-900 section-title mb-4">Zone de Service</h2>
+                <p class="text-xl text-gray-600">Je me déplace chez vous dans un rayon de 50 km autour de Nicolet</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Villes desservies -->
+                <div class="bg-white rounded-2xl p-8 shadow-xl">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">Villes principales desservies</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-blue-50 p-4 rounded-xl text-center">
+                            <div class="text-3xl text-blue-600 mb-2">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="font-bold text-gray-900">Nicolet</div>
+                            <div class="text-sm text-gray-600">Centre-ville et environs</div>
+                        </div>
+                        <div class="bg-blue-50 p-4 rounded-xl text-center">
+                            <div class="text-3xl text-blue-600 mb-2">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="font-bold text-gray-900">Trois-Rivières</div>
+                            <div class="text-sm text-gray-600">Tous les secteurs</div>
+                        </div>
+                        <div class="bg-blue-50 p-4 rounded-xl text-center">
+                            <div class="text-3xl text-blue-600 mb-2">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="font-bold text-gray-900">Bécancour</div>
+                            <div class="text-sm text-gray-600">Centre et quartiers</div>
+                        </div>
+                        <div class="bg-blue-50 p-4 rounded-xl text-center">
+                            <div class="text-3xl text-blue-600 mb-2">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="font-bold text-gray-900">Saint-Célestin</div>
+                            <div class="text-sm text-gray-600">Et communes voisines</div>
+                        </div>
+                    </div>
+                    <p class="text-center text-gray-600 mt-6">
+                        <i class="fas fa-info-circle text-blue-500 mr-2"></i>
+                        Frais de déplacement inclus dans le tarif horaire
+                    </p>
+                </div>
+
+                <!-- Service écoresponsable -->
+                <div class="bg-gradient-to-br from-green-50 to-emerald-100 rounded-2xl p-8 shadow-xl border-2 border-green-300">
+                    <div class="text-center mb-6">
+                        <div class="inline-block bg-green-600 text-white p-4 rounded-full mb-4">
+                            <i class="fas fa-leaf text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Service Écoresponsable</h3>
+                        <p class="text-gray-700 mb-6">
+                            Je m'engage pour l'environnement en utilisant un <strong>véhicule 100% électrique</strong> pour tous mes déplacements. Moins de bruit, moins de pollution, un service plus respectueux de notre planète.
+                        </p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-white bg-opacity-70 p-4 rounded-xl text-center">
+                            <i class="fas fa-bolt text-green-600 text-2xl mb-2"></i>
+                            <div class="font-bold text-gray-900">100% Électrique</div>
+                            <div class="text-sm text-gray-600">Zéro émission</div>
+                        </div>
+                        <div class="bg-white bg-opacity-70 p-4 rounded-xl text-center">
+                            <i class="fas fa-recycle text-green-600 text-2xl mb-2"></i>
+                            <div class="font-bold text-gray-900">Composants recyclés</div>
+                            <div class="text-sm text-gray-600">Quand c'est possible</div>
+                        </div>
+                        <div class="bg-white bg-opacity-70 p-4 rounded-xl text-center">
+                            <i class="fas fa-battery-full text-green-600 text-2xl mb-2"></i>
+                            <div class="font-bold text-gray-900">Énergie verte</div>
+                            <div class="text-sm text-gray-600">Rechargement responsable</div>
+                        </div>
+                        <div class="bg-white bg-opacity-70 p-4 rounded-xl text-center">
+                            <i class="fas fa-seedling text-green-600 text-2xl mb-2"></i>
+                            <div class="font-bold text-gray-900">Démarche verte</div>
+                            <div class="text-sm text-gray-600">Engagement écologique</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Témoignages -->
     <section class="py-16 bg-gray-50">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-4xl font-bold text-gray-900 section-title mb-8">Zone de service</h2>
-            <div class="bg-white rounded-2xl p-12 shadow-lg mb-8">
-                <div class="text-6xl mb-6">📍</div>
-                <p class="text-2xl text-gray-700 mb-4">
-                    <strong>Nicolet</strong> et environs
-                </p>
-                <p class="text-xl text-gray-600">
-                    Je me déplace dans un rayon de <strong>50 kilomètres</strong> autour de Nicolet
-                </p>
-                <p class="text-lg text-gray-500 mt-4">
-                    Dépannage informatique Nicolet • Réparation ordinateur Trois-Rivières • Technicien informatique Bécancour
-                </p>
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-900 section-title mb-4">Ce que disent mes clients</h2>
+                <p class="text-xl text-gray-600">La satisfaction client est ma priorité</p>
             </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                            <i class="fas fa-user text-blue-600"></i>
+                        </div>
+                        <div class="ml-4">
+                            <div class="font-bold text-gray-900">Marie D.</div>
+                            <div class="text-yellow-500">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">
+                        "Patrick a sauvé mon ordinateur rempli de virus. Il a pris le temps de tout m'expliquer. Un service exceptionnel!"
+                    </p>
+                </div>
 
-            <div class="bg-gradient-to-r from-green-50 to-blue-50 rounded-2xl p-8 shadow-lg">
-                <div class="text-5xl mb-4">🍃⚡</div>
-                <h3 class="text-3xl font-bold text-gray-900 mb-4">Service écoresponsable</h3>
-                <p class="text-xl text-gray-700">
-                    Je me déplace en <strong>véhicule 100% électrique</strong> (Ford Mustang Mach-E Premium)<br>
-                    pour un service informatique qui respecte l'environnement!
-                </p>
+                <div class="testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                            <i class="fas fa-user text-blue-600"></i>
+                        </div>
+                        <div class="ml-4">
+                            <div class="font-bold text-gray-900">Robert L.</div>
+                            <div class="text-yellow-500">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">
+                        "40 ans d'expérience ça se voit! Mon vieux PC fonctionne comme neuf. Tarifs très corrects pour un travail de pro."
+                    </p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                            <i class="fas fa-user text-blue-600"></i>
+                        </div>
+                        <div class="ml-4">
+                            <div class="font-bold text-gray-900">Suzanne P.</div>
+                            <div class="text-yellow-500">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">
+                        "Enfin quelqu'un qui parle en termes simples! La formation m'a rendue autonome. Je recommande à 100%."
+                    </p>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- Contact -->
     <section id="contact" class="py-20 hero-gradient text-white">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-5xl font-bold mb-4">Contactez-moi!</h2>
-                <p class="text-2xl">Je suis là pour vous aider</p>
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold mb-4">Contact rapide</h2>
+                <p class="text-2xl opacity-90">Une question? Un problème? Contactez-moi dès maintenant!</p>
             </div>
             
-            <div class="grid md:grid-cols-2 gap-8">
-                
-                <div class="bg-white bg-opacity-20 backdrop-blur-lg rounded-2xl p-8 text-center hover:bg-opacity-30 transition">
-                    <div class="text-5xl mb-4">📞</div>
-                    <h3 class="text-2xl font-bold mb-4">Téléphone</h3>
-                    <a href="tel:8193802999" class="text-2xl font-bold hover:underline">
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <!-- Téléphone -->
+                <div class="bg-white bg-opacity-10 backdrop-blur-lg rounded-2xl p-8 text-center hover:bg-opacity-20 transition duration-500 transform hover:-translate-y-2">
+                    <div class="inline-block bg-white bg-opacity-20 p-4 rounded-full mb-6">
+                        <i class="fas fa-phone-alt text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Appelez-moi</h3>
+                    <a href="tel:8193802999" class="text-3xl font-bold hover:underline block mb-4">
                         819-380-2999
                     </a>
-                    <p class="text-lg mt-4">Appelez-moi directement!</p>
+                    <p class="text-lg opacity-90">Réponse immédiate pendant les heures d'ouverture</p>
                 </div>
 
-                <div class="bg-white bg-opacity-20 backdrop-blur-lg rounded-2xl p-8 text-center hover:bg-opacity-30 transition">
-                    <div class="text-5xl mb-4">✉️</div>
-                    <h3 class="text-2xl font-bold mb-4">Courriel</h3>
-                    <a href="mailto:pot20pat@gmail.com" class="text-xl hover:underline break-all">
+                <!-- Courriel -->
+                <div class="bg-white bg-opacity-10 backdrop-blur-lg rounded-2xl p-8 text-center hover:bg-opacity-20 transition duration-500 transform hover:-translate-y-2">
+                    <div class="inline-block bg-white bg-opacity-20 p-4 rounded-full mb-6">
+                        <i class="fas fa-envelope text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Écrivez-moi</h3>
+                    <a href="mailto:pot20pat@gmail.com" class="text-xl hover:underline block mb-4 break-all">
                         pot20pat@gmail.com
                     </a>
-                    <p class="text-lg mt-4">Écrivez-moi un message!</p>
+                    <p class="text-lg opacity-90">Réponse sous 24 heures</p>
                 </div>
-                
+
+                <!-- Horaires -->
+                <div class="bg-white bg-opacity-10 backdrop-blur-lg rounded-2xl p-8 text-center hover:bg-opacity-20 transition duration-500 transform hover:-translate-y-2">
+                    <div class="inline-block bg-white bg-opacity-20 p-4 rounded-full mb-6">
+                        <i class="fas fa-calendar-alt text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Horaires</h3>
+                    <div class="space-y-2">
+                        <p class="text-lg">Lundi au Vendredi: 9h-17h</p>
+                        <p class="text-lg">Urgences: Soirs et fins de semaine</p>
+                    </div>
+                    <p class="text-lg opacity-90 mt-4">Sur rendez-vous uniquement</p>
+                </div>
             </div>
 
-            <div class="mt-12 text-center">
-                <p class="text-2xl mb-6">Appelez-moi dès maintenant pour prendre rendez-vous!</p>
-                <a href="tel:8193802999" class="inline-block bg-white text-purple-700 px-12 py-5 rounded-full font-bold text-2xl hover:bg-gray-100 transition shadow-2xl">
-                    📞 819-380-2999
+            <!-- CTA principal -->
+            <div class="text-center">
+                <p class="text-2xl mb-8 opacity-90">Pas besoin de prendre rendez-vous par email, appelez-moi directement!</p>
+                <a href="tel:8193802999" class="inline-block bg-white text-blue-700 px-12 py-6 rounded-full font-bold text-2xl hover:bg-gray-100 transition duration-300 shadow-2xl transform hover:scale-105">
+                    <i class="fas fa-phone-alt mr-3"></i>APPELER MAINTENANT: 819-380-2999
                 </a>
+                <p class="text-lg mt-6 opacity-80">
+                    <i class="fas fa-info-circle mr-2"></i>
+                    Première évaluation gratuite par téléphone
+                </p>
             </div>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p class="text-xl mb-4"><strong>Atelier Informatique Potvin</strong></p>
-            <p class="text-lg text-gray-400 mb-4">Dépannage et réparation d'ordinateur à Nicolet • Trois-Rivières • Bécancour</p>
-            <p class="text-lg text-gray-400 mb-2">Service écoresponsable en véhicule 100% électrique</p>
-            <p class="text-lg text-gray-400">© 2025 - Plus de 40 ans d'expérience à votre service</p>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center">
+                            <i class="fas fa-laptop-code text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-bold">Atelier Informatique Potvin</p>
+                            <p class="text-sm text-gray-400">Expert technique depuis 1984</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400">
+                        Service informatique professionnel avec une approche humaine et pédagogique.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-xl font-bold mb-6">Liens rapides</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#accueil" class="text-gray-400 hover:text-white transition duration-300">Accueil</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition duration-300">Services</a></li>
+                        <li><a href="#tarifs" class="text-gray-400 hover:text-white transition duration-300">Tarifs</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition duration-300">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-xl font-bold mb-6">Zone de service</h4>
+                    <div class="text-gray-400 space-y-2">
+                        <p>Nicolet et environs</p>
+                        <p>Rayon de 50 km</p>
+                        <p>Trois-Rivières • Bécancour • Saint-Célestin</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p class="text-gray-400">
+                    © 2025 Atelier Informatique Potvin - Dépannage et réparation informatique Nicolet • 
+                    <a href="tel:8193802999" class="text-blue-400 hover:text-blue-300">819-380-2999</a>
+                </p>
+                <p class="text-gray-500 text-sm mt-2">
+                    <i class="fas fa-leaf text-green-500 mr-1"></i>
+                    Service écoresponsable avec véhicule électrique
+                </p>
+            </div>
         </div>
     </footer>
 
+    <!-- Scripts -->
     <script>
-        // Smooth scrolling pour les liens d'ancrage
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -386,6 +865,26 @@
                         block: 'start'
                     });
                 }
+            });
+        });
+
+        // Ajout d'une animation simple au scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-fade-in');
+                    }
+                });
+            }, observerOptions);
+
+            // Observer les cartes de services
+            document.querySelectorAll('.card-hover').forEach(card => {
+                observer.observe(card);
             });
         });
     </script>
