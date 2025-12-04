@@ -1684,7 +1684,559 @@ console.log('✅ Chatbot Atelier Potvin chargé et prêt!');
 console.log('📡 API configurée sur:', AIP_API_URL);
 </script>
 
+<style>
+    /* ═══════════════════════════════════════════════════════════════
+       STYLES CHATBOT - Préfixés "aip-chat-" pour éviter conflits
+       ═══════════════════════════════════════════════════════════════ */
+    
+    .aip-chat-widget {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 10000;
+        font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    }
+    
+    .aip-chat-button {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        border: none;
+        color: white;
+        font-size: 36px;
+        cursor: pointer;
+        box-shadow: 0 6px 24px rgba(30, 60, 114, 0.5);
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: chatButtonPulse 2s infinite;
+    }
+    
+    @keyframes chatButtonPulse {
+        0% { box-shadow: 0 6px 24px rgba(30, 60, 114, 0.5); }
+        50% { box-shadow: 0 6px 30px rgba(30, 60, 114, 0.7); }
+        100% { box-shadow: 0 6px 24px rgba(30, 60, 114, 0.5); }
+    }
+    
+    .aip-chat-button:hover {
+        transform: scale(1.1);
+        box-shadow: 0 8px 32px rgba(30, 60, 114, 0.7);
+    }
+    
+    .aip-chat-button:active {
+        transform: scale(1.05);
+    }
+    
+    .aip-chat-window {
+        display: none;
+        position: fixed;
+        bottom: 120px;
+        right: 30px;
+        width: 420px;
+        max-width: calc(100vw - 60px);
+        height: 650px;
+        max-height: calc(100vh - 180px);
+        background: white;
+        border-radius: 24px;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        flex-direction: column;
+        overflow: hidden;
+        animation: chatWindowSlideUp 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+    
+    @keyframes chatWindowSlideUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px) scale(0.9);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
+    
+    .aip-chat-window.active {
+        display: flex;
+    }
+    
+    .aip-chat-header {
+        background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        color: white;
+        padding: 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    
+    .aip-chat-header-content h3 {
+        margin: 0;
+        font-size: 1.3em;
+        font-weight: 700;
+    }
+    
+    .aip-chat-header-content small {
+        display: block;
+        opacity: 0.95;
+        font-size: 0.9em;
+        margin-top: 4px;
+    }
+    
+    .aip-chat-close {
+        background: rgba(255,255,255,0.15);
+        border: none;
+        color: white;
+        font-size: 32px;
+        cursor: pointer;
+        line-height: 1;
+        padding: 0;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: all 0.2s;
+    }
+    
+    .aip-chat-close:hover {
+        background: rgba(255,255,255,0.25);
+        transform: rotate(90deg);
+    }
+    
+    .aip-chat-messages {
+        flex: 1;
+        overflow-y: auto;
+        padding: 24px;
+        background: linear-gradient(to bottom, #f8f9fa 0%, #ffffff 100%);
+        scroll-behavior: smooth;
+    }
+    
+    .aip-chat-messages::-webkit-scrollbar {
+        width: 8px;
+    }
+    
+    .aip-chat-messages::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    
+    .aip-chat-messages::-webkit-scrollbar-thumb {
+        background: #d1d5db;
+        border-radius: 4px;
+    }
+    
+    .aip-chat-messages::-webkit-scrollbar-thumb:hover {
+        background: #9ca3af;
+    }
+    
+    .aip-message {
+        margin-bottom: 20px;
+        animation: messageSlideIn 0.4s ease;
+    }
+    
+    @keyframes messageSlideIn {
+        from {
+            opacity: 0;
+            transform: translateY(15px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    .aip-message.user {
+        text-align: right;
+    }
+    
+    .aip-message-bubble {
+        display: inline-block;
+        padding: 14px 18px;
+        border-radius: 20px;
+        max-width: 85%;
+        word-wrap: break-word;
+        line-height: 1.6;
+        font-size: 16px;
+    }
+    
+    .aip-message.bot .aip-message-bubble {
+        background: white;
+        color: #1f2937;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        text-align: left;
+        border: 1px solid #e5e7eb;
+    }
+    
+    .aip-message.user .aip-message-bubble {
+        background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        color: white;
+        text-align: left;
+        box-shadow: 0 4px 12px rgba(30, 60, 114, 0.3);
+    }
+    
+    .aip-typing-indicator {
+        display: none;
+        padding: 12px 24px;
+        text-align: left;
+    }
+    
+    .aip-typing-indicator.active {
+        display: block;
+    }
+    
+    .aip-typing-dots {
+        display: inline-flex;
+        align-items: center;
+        padding: 12px 16px;
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    
+    .aip-typing-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #1e3c72;
+        margin: 0 3px;
+        animation: typingBounce 1.4s infinite;
+    }
+    
+    .aip-typing-dot:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+    
+    .aip-typing-dot:nth-child(3) {
+        animation-delay: 0.4s;
+    }
+    
+    @keyframes typingBounce {
+        0%, 60%, 100% {
+            transform: translateY(0);
+        }
+        30% {
+            transform: translateY(-12px);
+        }
+    }
+    
+    .aip-chat-input-area {
+        padding: 20px;
+        background: white;
+        border-top: 2px solid #e5e7eb;
+    }
+    
+    .aip-chat-input-wrapper {
+        display: flex;
+        gap: 12px;
+        align-items: flex-end;
+    }
+    
+    .aip-chat-input {
+        flex: 1;
+        padding: 14px 18px;
+        border: 2px solid #d1d5db;
+        border-radius: 24px;
+        font-size: 16px;
+        outline: none;
+        transition: all 0.2s;
+        font-family: inherit;
+        resize: none;
+        min-height: 48px;
+        max-height: 120px;
+    }
+    
+    .aip-chat-input:focus {
+        border-color: #1e3c72;
+        box-shadow: 0 0 0 3px rgba(30, 60, 114, 0.1);
+    }
+    
+    .aip-send-button {
+        flex-shrink: 0;
+        width: 48px;
+        height: 48px;
+        padding: 0;
+        background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 20px;
+        transition: all 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 12px rgba(30, 60, 114, 0.3);
+    }
+    
+    .aip-send-button:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 16px rgba(30, 60, 114, 0.4);
+    }
+    
+    .aip-send-button:active {
+        transform: scale(1.05);
+    }
+    
+    .aip-send-button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        transform: none;
+    }
+    
+    /* Badge "Nouveau message" */
+    .aip-chat-badge {
+        position: absolute;
+        top: -8px;
+        right: -8px;
+        background: #ef4444;
+        color: white;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        font-weight: bold;
+        box-shadow: 0 2px 8px rgba(239, 68, 68, 0.4);
+        animation: badgePulse 2s infinite;
+    }
+    
+    @keyframes badgePulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+        .aip-chat-widget {
+            bottom: 20px;
+            right: 20px;
+        }
+        
+        .aip-chat-button {
+            width: 60px;
+            height: 60px;
+            font-size: 30px;
+        }
+        
+        .aip-chat-window {
+            bottom: 20px;
+            right: 20px;
+            left: 20px;
+            width: auto;
+            max-width: none;
+            height: calc(100vh - 100px);
+        }
+        
+        .aip-message-bubble {
+            max-width: 90%;
+            font-size: 15px;
+        }
+    }
+</style>
+
+<!-- CHATBOT HTML -->
+<div class="aip-chat-widget">
+    <button class="aip-chat-button" onclick="aipToggleChat()" aria-label="Ouvrir le chat" title="Besoin d'aide? Discutez avec notre assistant IA!">
+        💬
+    </button>
+    
+    <div class="aip-chat-window" id="aipChatWindow">
+        <div class="aip-chat-header">
+            <div class="aip-chat-header-content">
+                <h3>🤖 Assistant Atelier Potvin</h3>
+                <small>Disponible 24/7 • Propulsé par IA</small>
+            </div>
+            <button class="aip-chat-close" onclick="aipToggleChat()" aria-label="Fermer" title="Fermer le chat">×</button>
+        </div>
+        
+        <div class="aip-chat-messages" id="aipChatMessages">
+            <div class="aip-message bot">
+                <div class="aip-message-bubble">
+                    Bonjour! 👋 Je suis l'assistant virtuel de Patrick. Comment puis-je vous aider aujourd'hui?
+                </div>
+            </div>
+        </div>
+        
+        <div class="aip-typing-indicator" id="aipTypingIndicator">
+            <div class="aip-typing-dots">
+                <span class="aip-typing-dot"></span>
+                <span class="aip-typing-dot"></span>
+                <span class="aip-typing-dot"></span>
+            </div>
+        </div>
+        
+        <div class="aip-chat-input-area">
+            <div class="aip-chat-input-wrapper">
+                <textarea 
+                    class="aip-chat-input" 
+                    id="aipChatInput" 
+                    placeholder="Tapez votre message..."
+                    rows="1"
+                    onkeypress="aipHandleKeyPress(event)"
+                    oninput="aipAutoResize(this)"
+                    aria-label="Message"></textarea>
+                <button class="aip-send-button" onclick="aipSendMessage()" aria-label="Envoyer" title="Envoyer le message">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════════════
+// CHATBOT JAVASCRIPT
+// ═══════════════════════════════════════════════════════════════
+
+// ⚠️ CONFIGURATION - CHANGE L'URL ICI!
+// Pour test local: http://localhost:8001/api/chat
+// Pour production: https://TON_URL_CLOUDFLARE/api/chat
+const AIP_API_URL = 'http://localhost:8001/api/chat';
+
+let aipConversationId = null;
+let aipIsTyping = false;
+
+// Toggle chat window
+function aipToggleChat() {
+    const chatWindow = document.getElementById('aipChatWindow');
+    const isActive = chatWindow.classList.toggle('active');
+    
+    if (isActive) {
+        document.getElementById('aipChatInput').focus();
+        // Scroll vers le bas des messages
+        const messagesContainer = document.getElementById('aipChatMessages');
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+}
+
+// Auto-resize textarea
+function aipAutoResize(textarea) {
+    textarea.style.height = 'auto';
+    textarea.style.height = Math.min(textarea.scrollHeight, 120) + 'px';
+}
+
+// Handle Enter key
+function aipHandleKeyPress(event) {
+    if (event.key === 'Enter' && !event.shiftKey) {
+        event.preventDefault();
+        aipSendMessage();
+    }
+}
+
+// Send message
+async function aipSendMessage() {
+    const input = document.getElementById('aipChatInput');
+    const message = input.value.trim();
+    
+    if (!message || aipIsTyping) return;
+    
+    // Afficher message utilisateur
+    aipAddMessage(message, 'user');
+    input.value = '';
+    input.style.height = 'auto';
+    
+    // Désactiver input pendant traitement
+    aipIsTyping = true;
+    input.disabled = true;
+    
+    // Afficher indicateur de frappe
+    document.getElementById('aipTypingIndicator').classList.add('active');
+    
+    try {
+        // Appeler API
+        const response = await fetch(AIP_API_URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                message: message,
+                conversation_id: aipConversationId,
+                user_name: 'Visiteur Web'
+            })
+        });
+        
+        if (!response.ok) {
+            throw new Error(`Erreur HTTP ${response.status}`);
+        }
+        
+        const data = await response.json();
+        
+        // Sauvegarder conversation ID
+        if (!aipConversationId) {
+            aipConversationId = data.conversation_id;
+        }
+        
+        // Masquer indicateur
+        document.getElementById('aipTypingIndicator').classList.remove('active');
+        
+        // Afficher réponse
+        aipAddMessage(data.response, 'bot');
+        
+    } catch (error) {
+        document.getElementById('aipTypingIndicator').classList.remove('active');
+        
+        // Message d'erreur personnalisé
+        let errorMessage = "Désolé, je n'arrive pas à me connecter pour le moment. 😔\n\n";
+        errorMessage += "Pour une assistance immédiate:\n";
+        errorMessage += "📞 Appelez Patrick: 819-380-2999\n";
+        errorMessage += "✉️ Email: contact@atelierpotvin.tech";
+        
+        aipAddMessage(errorMessage, 'bot');
+        console.error('Erreur chatbot:', error);
+    } finally {
+        // Réactiver input
+        aipIsTyping = false;
+        input.disabled = false;
+        input.focus();
+    }
+}
+
+// Add message to chat
+function aipAddMessage(text, type) {
+    const messagesContainer = document.getElementById('aipChatMessages');
+    
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `aip-message ${type}`;
+    
+    const bubbleDiv = document.createElement('div');
+    bubbleDiv.className = 'aip-message-bubble';
+    
+    // Convertir retours à la ligne en <br>
+    bubbleDiv.innerHTML = text.replace(/\n/g, '<br>');
+    
+    messageDiv.appendChild(bubbleDiv);
+    messagesContainer.appendChild(messageDiv);
+    
+    // Scroll vers le bas avec animation
+    setTimeout(() => {
+        messagesContainer.scrollTo({
+            top: messagesContainer.scrollHeight,
+            behavior: 'smooth'
+        });
+    }, 100);
+}
+
+// Message de bienvenue initial (optionnel)
+// Décommente si tu veux un message après quelques secondes
+/*
+setTimeout(function() {
+    if (!aipConversationId && document.getElementById('aipChatWindow').classList.contains('active') === false) {
+        // Ajouter une petite animation ou badge pour attirer l'attention
+    }
+}, 5000);
+*/
+
+// Log de confirmation de chargement
+console.log('✅ Chatbot Atelier Potvin chargé et prêt!');
+console.log('📡 API configurée sur:', AIP_API_URL);
+</script>
 </body>
 </html>
+
 
 
